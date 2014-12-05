@@ -10,5 +10,6 @@
     <module>SupSMS-ear</module>
     <module>SupSMS-web</module>
     <module>SupSMS-ejb</module>
+    <module>SupSMS-service</module>
   </modules>
 </project>
