@@ -29,10 +29,6 @@ public interface IServiceGenerique <T, PK extends java.io.Serializable> {
     public List<T> lister(IFiltreForm q);
     public List<T> listerCriteria();
     public void supprimer(Collection<T> ts);
-    public void supprimer(Iterator<T> ts);
-    public Collection<T> ajouter(Collection<T> ts);
-    public Collection<T> ajouter(Iterator<T> ts);
-    public Collection<T> modifier(Collection<T> ts);
-    public Collection<T> modifier(Iterator<T> ts);
+    public void supprimer(Iterator<T> ts);    
     
 }

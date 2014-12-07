@@ -143,42 +143,5 @@ public abstract class ServiceGenerique<T, PK extends java.io.Serializable> imple
                 Logger.getLogger(ServiceGenerique.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-
-    @Override
-    public Collection<T> ajouter(Collection<T> ts) {
-        return this.ajouter(ts.iterator());
-    }
-
-    @Override
-    public Collection<T> ajouter(Iterator<T> ts) {
-        Collection<T> ts2 = new LinkedList<T>();
-        while (ts.hasNext()) {
-            try {
-                ts2.add(this.getDAO().ajouter(ts.next()));
-            } catch (Exception ex) {
-                Logger.getLogger(ServiceGenerique.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return ts2;
-    }
-
-    @Override
-    public Collection<T> modifier(Collection<T> ts) {
-        return this.modifier(ts.iterator());
-    }
-
-    @Override
-    public Collection<T> modifier(Iterator<T> ts) {
-        Collection<T> ts2 = new LinkedList<T>();
-        while (ts.hasNext()) {
-            try {
-                ts2.add(this.getDAO().modifier(ts.next()));
-            } catch (Exception ex) {
-                Logger.getLogger(ServiceGenerique.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return ts2;
-    }
-    
+    }    
 }
