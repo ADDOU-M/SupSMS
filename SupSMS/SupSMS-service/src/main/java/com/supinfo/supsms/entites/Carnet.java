@@ -29,24 +29,12 @@ public class Carnet extends BaseEntite {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "CARNET_GEN")
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_UTILISATEUR")
-    private Utilisateur proprietaire;
-
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Utilisateur getProprietaire() {
-        return proprietaire;
-    }
-
-    public void setProprietaire(Utilisateur proprietaire) {
-        this.proprietaire = proprietaire;
     }
 
     @Override

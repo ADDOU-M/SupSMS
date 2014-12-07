@@ -27,6 +27,9 @@ public class Utilisateur extends Personne {
     @Column(name = "PASSWORD")
     protected String password;
 
+    @OneToOne
+    private Carnet carnet;
+
     public String getNumeroCarteCredit() {
         return numeroCarteCredit;
     }
@@ -49,6 +52,14 @@ public class Utilisateur extends Personne {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Carnet getCarnet() {
+        return carnet;
+    }
+
+    public void setCarnet(Carnet carnet) {
+        this.carnet = carnet;
     }
 
 }
