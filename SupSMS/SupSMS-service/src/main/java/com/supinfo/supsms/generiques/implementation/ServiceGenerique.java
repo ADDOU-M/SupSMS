@@ -24,7 +24,6 @@ import javax.transaction.Transactional;
  * @param <T>
  * @param <PK>
  */
-@Transactional
 public abstract class ServiceGenerique<T, PK extends java.io.Serializable> implements IServiceGenerique<T, PK> {
     public abstract IDAOGenerique<T, PK> getDAO();
 

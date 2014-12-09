@@ -19,13 +19,13 @@ import javax.persistence.OneToOne;
 public class Utilisateur extends Personne {
 
     @Column(name = "NUMERO_CARTE_CREDIT")
-    protected String numeroCarteCredit;
+    private String numeroCarteCredit;
 
     @Column(name = "LOGIN")
-    protected String login;
+    private String login;
 
     @Column(name = "PASSWORD")
-    protected String password;
+    private String password;
 
     @OneToOne
     private Carnet carnet;
