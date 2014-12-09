@@ -5,7 +5,7 @@
  */
 package com.supinfo.supsms.dao;
 
-import com.supinfo.supsms.entites.Contact;
+import com.supinfo.supsms.entites.Message;
 import com.supinfo.supsms.generiques.interfaces.IDAOGenerique;
 import java.util.List;
 import javax.ejb.Remote;
@@ -15,7 +15,9 @@ import javax.ejb.Remote;
  * @author Ekue_Weledji
  */
 @Remote
-public interface IContactDAO extends IDAOGenerique<Contact, Integer> {
-    public List<Contact> listerParCarnet(Integer idCarnet);
+public interface IMessageDAO extends IDAOGenerique<Message, Integer> {
+
+    public List<Message> listerParUtilisateur(Integer idUtilisateur);
+    public List<Message> conversation(Integer idUtilisateur, Integer idContact);
 
 }

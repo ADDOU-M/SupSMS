@@ -5,7 +5,7 @@
  */
 package com.supinfo.supsms.dao;
 
-import com.supinfo.supsms.entites.Contact;
+import com.supinfo.supsms.entites.Facture;
 import com.supinfo.supsms.generiques.interfaces.IDAOGenerique;
 import java.util.List;
 import javax.ejb.Remote;
@@ -15,7 +15,10 @@ import javax.ejb.Remote;
  * @author Ekue_Weledji
  */
 @Remote
-public interface IContactDAO extends IDAOGenerique<Contact, Integer> {
-    public List<Contact> listerParCarnet(Integer idCarnet);
+public interface IFactureDAO extends IDAOGenerique<Facture, Integer> {
+
+    public List<Facture> listerParOffre(Integer idOffre);
+
+    public List<Facture> listerParUtilisateur(Integer idUtilisateur);
 
 }

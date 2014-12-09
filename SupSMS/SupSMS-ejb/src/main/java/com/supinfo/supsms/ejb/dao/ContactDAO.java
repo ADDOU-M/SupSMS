@@ -25,7 +25,7 @@ public class ContactDAO extends DAOGenerique<Contact, Integer> implements IConta
 
     @Override
     public List<Contact> listerParCarnet(Integer idCarnet) {
-        Query q = em.createQuery("SELECT c FROM Contact c WHERE c.carnet.id = :idCarnet");
+        Query q = em.createQuery("SELECT c FROM Contact c WHERE c.carnet.id =:idCarnet");
         q.setParameter("idCarnet", idCarnet);
         return q.getResultList();
     }

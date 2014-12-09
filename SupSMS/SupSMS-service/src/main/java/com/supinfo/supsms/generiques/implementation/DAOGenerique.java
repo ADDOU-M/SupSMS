@@ -89,7 +89,6 @@ public class DAOGenerique<T, PK extends java.io.Serializable> implements IDAOGen
     public List<T> listerCriteria() {
         CriteriaQuery<T> c = getCb().createQuery(type);
         Root<T> t = c.from(type);
-
         c.select(t);
         TypedQuery<T> q = em.createQuery(c);
         return (List<T>) q.getResultList();
