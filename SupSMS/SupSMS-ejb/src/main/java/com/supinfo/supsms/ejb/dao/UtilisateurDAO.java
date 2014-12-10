@@ -9,6 +9,7 @@ import com.supinfo.supsms.dao.IUtilistateurDAO;
 import com.supinfo.supsms.entites.Utilisateur;
 import com.supinfo.supsms.generiques.implementation.DAOGenerique;
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 
 /**
  *
@@ -19,6 +20,13 @@ public class UtilisateurDAO extends DAOGenerique<Utilisateur, Integer> implement
 
     public UtilisateurDAO() {
         super(Utilisateur.class);
+    }
+
+    @Override
+    public Utilisateur getByLogin(String login) {
+        Query q = em.createQuery("SELECT u FROM Utilisateur u WHERE u.login =:login");
+        q.setParameter("login", login);
+        return (Utilisateur) q.getSingleResult();
     }
 
 }

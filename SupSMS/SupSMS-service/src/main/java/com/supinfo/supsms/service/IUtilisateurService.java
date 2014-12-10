@@ -16,5 +16,6 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface IUtilisateurService extends IServiceGenerique<Utilisateur,Integer> {
+    public Utilisateur getByLogin(String login);
     
 }

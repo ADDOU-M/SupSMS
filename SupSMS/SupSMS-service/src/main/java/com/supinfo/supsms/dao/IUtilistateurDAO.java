@@ -16,5 +16,6 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface IUtilistateurDAO extends IDAOGenerique<Utilisateur,Integer> {
+    public Utilisateur getByLogin(String login);
     
 }

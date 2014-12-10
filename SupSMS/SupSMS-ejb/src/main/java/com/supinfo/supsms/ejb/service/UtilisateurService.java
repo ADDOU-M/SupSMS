@@ -9,6 +9,8 @@ import com.supinfo.supsms.dao.IUtilistateurDAO;
 import com.supinfo.supsms.entites.Utilisateur;
 import com.supinfo.supsms.generiques.implementation.ServiceGenerique;
 import com.supinfo.supsms.service.IUtilisateurService;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -32,6 +34,17 @@ public class UtilisateurService extends ServiceGenerique<Utilisateur, Integer> i
     @Override
     public IUtilistateurDAO getDAO() {
         return this.utilistateurDAO;
+    }
+
+    @Override
+    public Utilisateur getByLogin(String login) {
+        try {
+            return (Utilisateur) this.getDAO().getByLogin(login);
+        } catch (Exception ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
     }
 
 }

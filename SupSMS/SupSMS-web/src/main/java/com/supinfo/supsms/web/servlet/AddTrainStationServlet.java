@@ -32,6 +32,8 @@ public class AddTrainStationServlet extends HttpServlet {
         Utilisateur u = new Utilisateur();
         u.setNom("ekue");
         u.setPrenom("weledji");
+        u.setLogin("rouky23");
+        u.setPassword("23assanatou");
         String name = req.getParameter("name");
 //        trainStation.setAddress(req.getParameter("address"));
 //        trainStation.setCity(req.getParameter("city"));
