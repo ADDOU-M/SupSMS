@@ -22,15 +22,15 @@
     <body>
         <!-- Header -->
         <jsp:include page="include/header.jsp" />
-        <!-- /Header -->
-        <!-- Left column -->
-        <jsp:include page="include/menu.jsp" />
-        <!-- /Left column -->
+        <!-- /Header -->        
 
         <!-- Main -->
         <div class="container-fluid">
             <div class="row">
-                
+                <!-- Left column -->
+                <jsp:include page="include/menu.jsp" />
+                <!-- /Left column -->
+
                 <div class="col-sm-9">
 
                     <!-- column 2 -->	

@@ -3,7 +3,7 @@
     Created on : 10 déc. 2014, 14:34:22
     Author     : Ekue_Weledji
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>    
@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Dashboard</a>
+                <a class="navbar-brand" href="#">SupSMS</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -27,7 +27,18 @@
                             <li><a href="#">My Profile</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+                    <li>
+                        <c:choose>
+                            <c:when test="${not empty user}">
+                                <c:url value="/logout" var="logoutUrl" />
+                                <a href="${logoutUrl}"><i class="glyphicon glyphicon-off">Logout</i></a>
+                            </c:when>
+                            <c:otherwise>
+                                <c:url value="/logger" var="loginUrl" />
+                                <a href="${loginUrl}"><i class="glyphicon glyphicon-user">Login</i></a>                                
+                            </c:otherwise>
+                        </c:choose>
+                    </li>                    
                 </ul>
             </div>
         </div><!-- /container -->
