@@ -9,11 +9,20 @@
 <html>
     <div class="col-sm-3">
         <!-- Left column -->
-        <a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Tools</strong></a>  
+        <a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Menu </strong></a>  
 
         <hr>
 
         <ul class="list-unstyled">
+            <li class="dropdown">
+                <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+                    <i class="glyphicon glyphicon-user"></i>Gestion contacts<span class="caret"></span>
+                </a>
+                <ul id="g-account-menu" class="dropdown-menu" role="menu">
+                    <li><a href="#">Ajouter</a></li>
+                    <li><a href="#">Liste</a></li>
+                </ul>
+            </li>
             <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">
                     <h5>Settings <i class="glyphicon glyphicon-chevron-down"></i></h5>
                 </a>

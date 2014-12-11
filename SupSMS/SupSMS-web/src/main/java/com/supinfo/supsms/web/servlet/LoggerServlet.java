@@ -39,12 +39,14 @@ public class LoggerServlet extends HttpServlet {
             //vérification du mot de passe
             if (u.getPassword().equals(password)) {
                 req.getSession().setAttribute("user", login);
+                req.getSession().setAttribute("fullName", u.getFullName());
                 resp.sendRedirect(getServletContext().getContextPath());
             } else {
                 doGet(req, resp);
             }
+        } else {
+            doGet(req, resp);
         }
-        doGet(req, resp);
 
     }
 

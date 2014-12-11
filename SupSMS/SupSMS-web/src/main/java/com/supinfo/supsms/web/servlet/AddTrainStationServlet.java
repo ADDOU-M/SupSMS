@@ -30,15 +30,20 @@ public class AddTrainStationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Utilisateur u = new Utilisateur();
-        u.setNom("ekue");
-        u.setPrenom("weledji");
+        u.setNom("Guindo");
+        u.setPrenom("Rouky");
         u.setLogin("rouky23");
         u.setPassword("23assanatou");
-        String name = req.getParameter("name");
+        Utilisateur u1 = new Utilisateur();
+        u1.setNom("Chagour");
+        u1.setPrenom("Habib");
+        u1.setLogin("admin ");
+        u1.setPassword("admin");
 //        trainStation.setAddress(req.getParameter("address"));
 //        trainStation.setCity(req.getParameter("city"));
         
         this.utilisateurService.ajouter(u);
+        this.utilisateurService.ajouter(u1);
         
         resp.sendRedirect(req.getContextPath() + "/train-stations");
     }

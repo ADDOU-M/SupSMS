@@ -84,6 +84,10 @@ public abstract class Personne extends BaseEntite {
     public void seteMail(String eMail) {
         this.eMail = eMail;
     }
+    
+    public String getFullName(){
+        return this.nom +" "+ this.prenom;
+    }
 
     @Override
     public int hashCode() {
