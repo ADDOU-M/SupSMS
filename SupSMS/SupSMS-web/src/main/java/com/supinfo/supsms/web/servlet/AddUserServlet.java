@@ -26,14 +26,14 @@ public class AddUserServlet extends HttpServlet {
 
     @EJB
     private IUtilisateurService utilisateurService;
-    
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/jsp/addUser.jsp").forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {        
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Utilisateur u = new Utilisateur();
         u.setNom(req.getParameter("nom"));
         u.setPrenom(req.getParameter("prenom"));
@@ -43,8 +43,15 @@ public class AddUserServlet extends HttpServlet {
         u.seteMail(req.getParameter("email"));
         u.setLogin(req.getParameter("telephone"));
         u.setCarnet(new Carnet());
-        this.utilisateurService.ajouter(u);
-        resp.sendRedirect(req.getContextPath() + "/sign-up");
+        try {
+            this.utilisateurService.ajouter(u);
+            req.getSession().setAttribute("user", u.getLogin());
+            req.getSession().setAttribute("fullName", u.getFullName());
+            resp.sendRedirect(getServletContext().getContextPath());
+        } catch (Exception ex) {
+            resp.sendRedirect(req.getContextPath() + "/sign-up");
+        }
+
     }
 
 }

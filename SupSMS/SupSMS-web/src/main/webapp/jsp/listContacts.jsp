@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-        <title>SupSMS | List Users</title>
+        <title>SupSMS | List Contacts</title>
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,11 +45,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${users}" var="user">
+                                    <c:forEach items="${contacts}" var="contact">
                                         <tr>
-                                            <td><c:out value="${user.nom}" /></td>
-                                            <td><c:out value="${user.prenom}" /></td>
-                                            <td><c:out value="${user.numeroTelephone}" /></td>
+                                            <td><c:out value="${contact.nom}" /></td>
+                                            <td><c:out value="${contact.prenom}" /></td>
+                                            <td><c:out value="${contact.numeroTelephone}" /></td>
                                         </tr>
                                     </c:forEach>                                    
                                 </tbody>
