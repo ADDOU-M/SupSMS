@@ -32,7 +32,7 @@ public class ListContactsServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Utilisateur currentUser = this.utilisateurService.getByLogin(req.getAttribute("user").toString());
+        Utilisateur currentUser = this.utilisateurService.getByLogin(req.getSession().getAttribute("user").toString());
         List<Contact> contacts = this.contactService.listerParCarnet(currentUser.getCarnet().getId());
         req.setAttribute("contacts", contacts);
         req.setAttribute("nombreContacts", contacts.size());
