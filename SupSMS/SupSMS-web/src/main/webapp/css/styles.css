@@ -1,3 +1,7 @@
+.form-vertical label.error{
+    color: red;
+}
+
 .navbar-static-top {
   margin-bottom:20px;
 }

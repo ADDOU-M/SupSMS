@@ -6,6 +6,7 @@
 package com.supinfo.supsms.ejb.dao;
 
 import com.supinfo.supsms.dao.IContactDAO;
+import com.supinfo.supsms.entites.Carnet;
 import com.supinfo.supsms.entites.Contact;
 import com.supinfo.supsms.generiques.implementation.DAOGenerique;
 import java.util.List;
@@ -21,13 +22,26 @@ public class ContactDAO extends DAOGenerique<Contact, Integer> implements IConta
 
     public ContactDAO() {
         super(Contact.class);
-    }    
+    }
 
     @Override
     public List<Contact> listerParCarnet(Integer idCarnet) {
         Query q = em.createQuery("SELECT c FROM Contact c WHERE c.carnet.id =:idCarnet");
         q.setParameter("idCarnet", idCarnet);
         return q.getResultList();
+    }
+
+    @Override
+    public boolean alreadyExistsInAdressBook(String numeroTelephone, Carnet carnet) {
+        Query q = em.createQuery("SELECT c FROM Contact c WHERE c.numeroTelephone =:numeroTelephone AND c.carnet.id =:idCarnet ");
+        q.setParameter("numeroTelephone", numeroTelephone);
+        q.setParameter("idCarnet", carnet.getId());
+        try {
+            q.getSingleResult();
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
 }

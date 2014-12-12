@@ -1,9 +1,8 @@
 <%-- 
-    Document   : logger
-    Created on : 10 déc. 2014, 15:25:32
+    Document   : addUser
+    Created on : 12 déc. 2014, 09:03:11
     Author     : Ekue_Weledji
 --%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,7 +10,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-        <title>SupSMS | New Contact</title>
+        <title>SupSMS | New User</title>
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,11 +39,11 @@
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <i class="glyphicon glyphicon-wrench pull-right"></i>
-                                        <h4>Nouveau contact</h4>
+                                        <h4>Inscription</h4>
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <form id="add-contact-form" class="form form-vertical" method="POST">
+                                    <form id="add-user-form" class="form form-vertical" method="POST">
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <div class="control-group">
@@ -82,12 +81,20 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="control-group">
-                                                    <label>Boîte postale:</label>
+                                                    <label>Carte de crédit:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="boitePostale" class="form-control" placeholder="Numéro carte de crédit">
+                                                        <input type="text" name="carteCredit" class="form-control" placeholder="Numéro carte de crédit">
                                                     </div>
                                                 </div> 
-                                            </div>                                            
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="control-group">
+                                                    <label>Mot de passe:</label>
+                                                    <div class="controls">
+                                                        <input type="password" name="password" class="form-control" placeholder="mot de passe">
+                                                    </div>
+                                                </div> 
+                                            </div>
                                         </div><br/>
                                         <div class="control-group">
                                             <label></label>

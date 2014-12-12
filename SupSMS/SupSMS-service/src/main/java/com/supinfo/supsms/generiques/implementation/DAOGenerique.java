@@ -80,7 +80,7 @@ public class DAOGenerique<T, PK extends java.io.Serializable> implements IDAOGen
 
     @Override
     public List<T> lister() {
-        String jpql = "SELECT t FROM " + type.getSimpleName();
+        String jpql = "SELECT t FROM " + type.getSimpleName() + " t";
         Query q = em.createQuery(jpql);
         return q.getResultList();
     }

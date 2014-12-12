@@ -5,6 +5,7 @@
  */
 package com.supinfo.supsms.entites;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -18,16 +19,16 @@ import javax.persistence.OneToOne;
 @DiscriminatorValue(value = "USER")
 public class Utilisateur extends Personne {
 
-    @Column(name = "NUMERO_CARTE_CREDIT")
+    @Column(name = "NUMERO_CARTE_CREDIT", unique = true)
     private String numeroCarteCredit;
 
-    @Column(name = "LOGIN")
+    @Column(name = "LOGIN", unique = true)
     private String login;
 
     @Column(name = "PASSWORD")
     private String password;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Carnet carnet;
 
     public String getNumeroCarteCredit() {

@@ -5,6 +5,7 @@
  */
 package com.supinfo.supsms.dao;
 
+import com.supinfo.supsms.entites.Carnet;
 import com.supinfo.supsms.entites.Contact;
 import com.supinfo.supsms.generiques.interfaces.IDAOGenerique;
 import java.util.List;
@@ -16,6 +17,9 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface IContactDAO extends IDAOGenerique<Contact, Integer> {
+
     public List<Contact> listerParCarnet(Integer idCarnet);
+
+    public boolean alreadyExistsInAdressBook(String numeroTelephone, Carnet carnet);
 
 }

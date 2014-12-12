@@ -3,7 +3,7 @@
     Created on : 10 déc. 2014, 14:47:32
     Author     : Ekue_Weledji
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,8 @@
                     <i class="glyphicon glyphicon-user"></i>Gestion contacts<span class="caret"></span>
                 </a>
                 <ul id="g-account-menu" class="dropdown-menu" role="menu">
-                    <li><a href="#">Ajouter</a></li>
+                    <c:url value="/new-contact" var="addContactUrl" />
+                    <li><a href="${addContactUrl}">Ajouter</a></li>
                     <li><a href="#">Liste</a></li>
                 </ul>
             </li>

@@ -21,5 +21,9 @@ public interface IContactService extends IServiceGenerique<Contact, Integer> {
     public List<Contact> listerParCarnet(Carnet c);
 
     public List<Contact> listerParCarnet(Integer idCarnet);
+    
+    public boolean alreadyExistsInAdressBook(String numeroTelephone, Carnet carnet);
+    
+    
 
 }

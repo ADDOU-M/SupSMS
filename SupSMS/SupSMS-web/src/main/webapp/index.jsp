@@ -3,6 +3,7 @@
     Created on : 10 déc. 2014, 14:34:22
     Author     : Ekue_Weledji
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,77 +74,12 @@
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <i class="glyphicon glyphicon-wrench pull-right"></i>
-                                        <h4>Inscription</h4>
+                                        <c:url value="/sign-up" var="signUpUrl" />
+                                        <a href="${signUpUrl}"><h4>Inscription</h4></a>
+                                        <c:url value="/users" var="usersUrl" />
+                                        <a href="${usersUrl}"><h4>users</h4></a>
                                     </div>
-                                </div>
-                                <div class="panel-body">
-                                    <form class="form form-vertical">
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <div class="control-group">
-                                                    <label>Nom:</label>
-                                                    <div class="controls">
-                                                        <input type="text" name="nom" class="form-control" placeholder="votre nom">
-                                                    </div>
-                                                </div> 
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="control-group">
-                                                    <label>Prénom:</label>
-                                                    <div class="controls">
-                                                        <input type="text" name="prenom" class="form-control" placeholder="votre prénom">
-                                                    </div>
-                                                </div> 
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="control-group">
-                                                    <label>Téléphone:</label>
-                                                    <div class="controls">
-                                                        <input type="text" name="telephone" class="form-control" placeholder="numéro de téléphone">
-                                                    </div>
-                                                </div> 
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <div class="control-group">
-                                                    <label>Email:</label>
-                                                    <div class="controls">
-                                                        <input type="text" name="email" class="form-control" placeholder="adresse mail">
-                                                    </div>
-                                                </div> 
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="control-group">
-                                                    <label>Carte de crédit:</label>
-                                                    <div class="controls">
-                                                        <input type="text" name="carteCredit" class="form-control" placeholder="Numéro carte de crédit">
-                                                    </div>
-                                                </div> 
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="control-group">
-                                                    <label>Mot de passe:</label>
-                                                    <div class="controls">
-                                                        <input type="password" name="password" class="form-control" placeholder="mot de passe">
-                                                    </div>
-                                                </div> 
-                                            </div>
-                                        </div><br/>
-                                        <div class="control-group">
-                                            <label></label>
-                                            <div class="controls pull-right">
-                                                <button type="reset" class="btn btn-primary">
-                                                    Annuler
-                                                </button>
-                                                <button type="submit" class="btn btn-primary">
-                                                    Valider
-                                                </button>
-                                            </div>
-                                        </div>   
-
-                                    </form>
-                                </div><!--/panel content-->
+                                </div>                                
                             </div><!--/panel-->             
                         </div><!--/col-span-6-->
                     </div><!--/row-->                   
