@@ -7,7 +7,6 @@ package com.supinfo.supsms.web.servlet;
 
 import com.supinfo.supsms.entites.Carnet;
 import com.supinfo.supsms.entites.Utilisateur;
-import com.supinfo.supsms.service.ICarnetService;
 import com.supinfo.supsms.service.IUtilisateurService;
 import java.io.IOException;
 import javax.ejb.EJB;
@@ -29,12 +28,42 @@ public class AddUserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getParameter("login") != null) {
+            Utilisateur u = this.utilisateurService.getByLogin(req.getParameter("login"));
+            req.setAttribute("userToUpdate", u);
+        }
         req.getRequestDispatcher("/jsp/addUser.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Utilisateur u = new Utilisateur();
+        Utilisateur u;
+        if (this.isAddingAction(req)) {
+            u = new Utilisateur();
+            this.getValuesFromForm(u, req);
+            u.setCarnet(new Carnet());
+            try {
+                this.utilisateurService.ajouter(u);
+                this.authenticateUser(u, req);
+                resp.sendRedirect(getServletContext().getContextPath());
+            } catch (Exception ex) {
+                resp.sendRedirect(req.getContextPath() + "/sign-up");
+            }
+        } else {
+            u = this.utilisateurService.getByLogin(req.getParameter("login"));
+            this.getValuesFromForm(u, req);
+            try {
+                this.utilisateurService.modifier(u);
+                this.authenticateUser(u, req);
+                resp.sendRedirect(getServletContext().getContextPath());
+            } catch (Exception ex) {
+                resp.sendRedirect(req.getContextPath() + "/sign-up");
+            }
+        }
+
+    }
+
+    private void getValuesFromForm(Utilisateur u, HttpServletRequest req) {
         u.setNom(req.getParameter("nom"));
         u.setPrenom(req.getParameter("prenom"));
         u.setNumeroCarteCredit(req.getParameter("carteCredit"));
@@ -42,16 +71,20 @@ public class AddUserServlet extends HttpServlet {
         u.setPassword(req.getParameter("password"));
         u.seteMail(req.getParameter("email"));
         u.setLogin(req.getParameter("telephone"));
-        u.setCarnet(new Carnet());
-        try {
-            this.utilisateurService.ajouter(u);
-            req.getSession().setAttribute("user", u.getLogin());
-            req.getSession().setAttribute("fullName", u.getFullName());
-            resp.sendRedirect(getServletContext().getContextPath());
-        } catch (Exception ex) {
-            resp.sendRedirect(req.getContextPath() + "/sign-up");
-        }
 
+    }
+
+    private boolean isAddingAction(HttpServletRequest req) {
+        if (req.getParameter("login") != null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private void authenticateUser(Utilisateur u, HttpServletRequest req) {
+        req.getSession().setAttribute("user", u.getLogin());
+        req.getSession().setAttribute("fullName", u.getFullName());
     }
 
 }

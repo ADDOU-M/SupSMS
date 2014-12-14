@@ -11,7 +11,6 @@ import com.supinfo.supsms.service.IContactService;
 import com.supinfo.supsms.service.IUtilisateurService;
 import java.io.IOException;
 import javax.ejb.EJB;
-import javax.faces.convert.IntegerConverter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,9 +43,9 @@ public class AddContactServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Contact c;
         //ajout ou modif de l'entité
-        if (this.isActionAjouter(req)) {
+        if (this.isAddingAction(req)) {
             c = new Contact();
-            this.recupererValeursFormulaire(c, req);
+            this.getValuesFromForm(c, req);
             Utilisateur u = this.utilisateurService.getByLogin(req.getSession().getAttribute("user").toString());
             c.setCarnet(u.getCarnet());
             if (!this.contactService.alreadyExistsInAdressBook(c.getNumeroTelephone(), u.getCarnet())) {
@@ -55,14 +54,14 @@ public class AddContactServlet extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/new-contact");
         } else {
             c = this.contactService.recuperer(Integer.valueOf(req.getParameter("id")));
-            this.recupererValeursFormulaire(c, req);
+            this.getValuesFromForm(c, req);
             this.contactService.modifier(c);  
             resp.sendRedirect(req.getContextPath() + "/contacts");
         }        
 
     }
 
-    private void recupererValeursFormulaire(Contact c, HttpServletRequest req) {
+    private void getValuesFromForm(Contact c, HttpServletRequest req) {
         c.setNom(req.getParameter("nom"));
         c.setPrenom(req.getParameter("prenom"));
         c.setNumeroTelephone(req.getParameter("telephone"));
@@ -70,7 +69,7 @@ public class AddContactServlet extends HttpServlet {
         c.setBoitePostale(Integer.valueOf(req.getParameter("boitePostale")));
     }
 
-    private boolean isActionAjouter(HttpServletRequest req) {
+    private boolean isAddingAction(HttpServletRequest req) {
         if (req.getParameter("id") != null) {
             return false;
         } else {

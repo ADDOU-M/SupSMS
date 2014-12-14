@@ -27,7 +27,10 @@
                                     <i class="glyphicon glyphicon-user"></i>Bienvenue ${fullName}<span class="caret"></span>
                                 </a>
                                 <ul id="g-account-menu" class="dropdown-menu" role="menu">
-                                    <li><a href="#">My Profile</a></li>
+                                    <c:url value="/sign-up" var="updateUserUrl">
+                                        <c:param name="login" value="${user}" />
+                                    </c:url>
+                                    <li><a href="${updateUserUrl}">Mon profil</a></li>
                                 </ul>
                             </li>
                         </c:when>

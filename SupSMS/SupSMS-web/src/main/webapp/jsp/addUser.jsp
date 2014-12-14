@@ -39,7 +39,14 @@
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <i class="glyphicon glyphicon-wrench pull-right"></i>
-                                        <h4>Inscription</h4>
+                                        <c:choose>
+                                            <c:when test="${not empty user}">
+                                                <h4>Mise à jour de votre profil</h4>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <h4>Inscription</h4>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </div>
                                 </div>
                                 <div class="panel-body">
@@ -49,7 +56,7 @@
                                                 <div class="control-group">
                                                     <label>Nom:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="nom" class="form-control" placeholder="votre nom">
+                                                        <input type="text" name="nom" value="${userToUpdate.nom}" class="form-control" placeholder="votre nom">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -57,7 +64,7 @@
                                                 <div class="control-group">
                                                     <label>Prénom:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="prenom" class="form-control" placeholder="votre prénom">
+                                                        <input type="text" name="prenom" value="${userToUpdate.prenom}" class="form-control" placeholder="votre prénom">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -65,7 +72,7 @@
                                                 <div class="control-group">
                                                     <label>Téléphone:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="telephone" class="form-control" placeholder="numéro de téléphone">
+                                                        <input type="text" name="telephone" value="${userToUpdate.numeroTelephone}" class="form-control" placeholder="numéro de téléphone">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -75,7 +82,7 @@
                                                 <div class="control-group">
                                                     <label>Email:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="email" class="form-control" placeholder="adresse mail">
+                                                        <input type="text" name="email" value="${userToUpdate.eMail}" class="form-control" placeholder="adresse mail">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -83,7 +90,7 @@
                                                 <div class="control-group">
                                                     <label>Carte de crédit:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="carteCredit" class="form-control" placeholder="Numéro carte de crédit">
+                                                        <input type="text" name="carteCredit" value="${userToUpdate.numeroCarteCredit}" class="form-control" placeholder="Numéro carte de crédit">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -91,7 +98,7 @@
                                                 <div class="control-group">
                                                     <label>Mot de passe:</label>
                                                     <div class="controls">
-                                                        <input type="password" name="password" class="form-control" placeholder="mot de passe">
+                                                        <input type="password" name="password" value="${userToUpdate.password}" class="form-control" placeholder="mot de passe">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -106,8 +113,7 @@
                                                     Valider
                                                 </button>
                                             </div>
-                                        </div>   
-
+                                        </div>  
                                     </form>
                                 </div><!--/panel content-->
                             </div><!--/panel-->             
