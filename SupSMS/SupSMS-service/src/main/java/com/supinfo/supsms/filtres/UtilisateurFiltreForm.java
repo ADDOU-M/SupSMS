@@ -70,7 +70,7 @@ public class UtilisateurFiltreForm implements IFiltreForm {
                 criteria.add(cb.like(cb.lower(t.get("numeroCarteCredit").as(String.class)), cb.lower(p4)));
             }
             //controle sur le login de l'utilisateur
-            if (this.utilisateur.getNumeroCarteCredit() != null) {
+            if (this.utilisateur.getLogin() != null) {
                 ParameterExpression<String> p5 = cb.parameter(String.class, "login");
                 criteria.add(cb.like(cb.lower(t.get("login").as(String.class)), cb.lower(p5)));
             }
@@ -99,16 +99,16 @@ public class UtilisateurFiltreForm implements IFiltreForm {
             if (this.utilisateur.getNom() != null) {
                 q.setParameter("nom", "%" + this.utilisateur.getNom() + "%");
             }
-            if (this.utilisateur.getNom() != null) {
+            if (this.utilisateur.getPrenom()!= null) {
                 q.setParameter("prenom", "%" + this.utilisateur.getPrenom() + "%");
             }
-            if (this.utilisateur.getNom() != null) {
+            if (this.utilisateur.getNumeroTelephone()!= null) {
                 q.setParameter("numeroTelephone", "%" + this.utilisateur.getNumeroTelephone() + "%");
             }
-            if (this.utilisateur.getNom() != null) {
+            if (this.utilisateur.getNumeroCarteCredit()!= null) {
                 q.setParameter("numeroCarteCredit", "%" + this.utilisateur.getNumeroCarteCredit() + "%");
             }
-            if (this.utilisateur.getNom() != null) {
+            if (this.utilisateur.getLogin()!= null) {
                 q.setParameter("login", "%" + this.utilisateur.getLogin() + "%");
             }
         }

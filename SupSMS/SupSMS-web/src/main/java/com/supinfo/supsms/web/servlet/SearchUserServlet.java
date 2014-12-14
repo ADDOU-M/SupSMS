@@ -46,11 +46,21 @@ public class SearchUserServlet extends HttpServlet {
     }
 
     private void getValuesFromForm(UtilisateurFiltreForm u, HttpServletRequest req) {
-//        u.getUtilisateur().setNom(req.getParameter("nom"));
-//        u.getUtilisateur().setPrenom(req.getParameter("prenom"));
-//        u.getUtilisateur().setNumeroCarteCredit(req.getParameter("carteCredit"));
-        u.getUtilisateur().setNumeroTelephone(req.getParameter("telephone"));
-//        u.getUtilisateur().seteMail(req.getParameter("email"));
+        if(!req.getParameter("nom").isEmpty()){
+            u.getUtilisateur().setNom(req.getParameter("nom"));
+        }
+        if(!req.getParameter("prenom").isEmpty()){
+            u.getUtilisateur().setPrenom(req.getParameter("prenom"));
+        }
+        if(!req.getParameter("carteCredit").isEmpty()){
+            u.getUtilisateur().setNumeroCarteCredit(req.getParameter("carteCredit"));
+        }
+        if(!req.getParameter("telephone").isEmpty()){
+            u.getUtilisateur().setNumeroTelephone(req.getParameter("telephone"));
+        }
+        if(!req.getParameter("email").isEmpty()){
+            u.getUtilisateur().seteMail(req.getParameter("email"));
+        }       
 
     }
 
