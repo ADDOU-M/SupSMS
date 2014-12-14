@@ -40,17 +40,17 @@
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <i class="glyphicon glyphicon-wrench pull-right"></i>
-                                        <h4>Nouveau contact</h4>
+                                        <h4>Ajout/Mise à jour des contacts</h4>
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <form id="add-contact-form" class="form form-vertical" method="POST">
+                                    <form id="add-contact-form" class="form form-vertical" method="POST">                                        
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <div class="control-group">
                                                     <label>Nom:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="nom" class="form-control" placeholder="votre nom">
+                                                        <input type="text" name="nom" value="${contact.nom}" class="form-control" placeholder="votre nom">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -58,7 +58,7 @@
                                                 <div class="control-group">
                                                     <label>Prénom:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="prenom" class="form-control" placeholder="votre prénom">
+                                                        <input type="text" name="prenom" value="${contact.prenom}" class="form-control" placeholder="votre prénom">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -66,7 +66,7 @@
                                                 <div class="control-group">
                                                     <label>Téléphone:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="telephone" class="form-control" placeholder="numéro de téléphone">
+                                                        <input type="text" name="telephone" value="${contact.numeroTelephone}" class="form-control" placeholder="numéro de téléphone">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -76,7 +76,7 @@
                                                 <div class="control-group">
                                                     <label>Email:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="email" class="form-control" placeholder="adresse mail">
+                                                        <input type="text" name="email" value="${contact.eMail}" class="form-control" placeholder="adresse mail">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -84,7 +84,7 @@
                                                 <div class="control-group">
                                                     <label>Boîte postale:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="boitePostale" class="form-control" placeholder="Numéro carte de crédit">
+                                                        <input type="text" name="boitePostale" value="${contact.boitePostale}" class="form-control" placeholder="Numéro carte de crédit">
                                                     </div>
                                                 </div> 
                                             </div>                                            

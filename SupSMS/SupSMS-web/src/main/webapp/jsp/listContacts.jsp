@@ -50,8 +50,37 @@
                                             <td><c:out value="${contact.nom}" /></td>
                                             <td><c:out value="${contact.prenom}" /></td>
                                             <td><c:out value="${contact.numeroTelephone}" /></td>
+                                            <td>
+                                                <c:url value="/new-contact" var="updateContactUrl">
+                                                    <c:param name="id" value="${contact.id}" />
+                                                </c:url>
+                                                <a href="${updateContactUrl}">Modifier</a>
+                                            </td>
+                                            <td>
+                                                <a title="Delete Contact" data-toggle="modal" href="#deleteContactModal${contact.id}">Supprimer</a>
+                                            </td>                                    
                                         </tr>
-                                    </c:forEach>                                    
+                                    <div class="modal" id="deleteContactModal${contact.id}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h4 class="modal-title">Supprimer un contact</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Voulez vous vraiment supprimer ce contact?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="#" data-dismiss="modal" class="btn">Annuler</a>
+                                                    <c:url value="/deleteContact" var="deleteContactUrl">
+                                                        <c:param name="id" value="${contact.id}" />
+                                                    </c:url>
+                                                    <a href="${deleteContactUrl}" class="btn btn-primary">Supprimer</a>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dalog -->
+                                    </div><!-- /.modal -->
+                                </c:forEach>                                    
                                 </tbody>
                             </table>                                       
                         </div><!--/col-span-6-->
@@ -60,7 +89,7 @@
             </div>
         </div>
         <!-- /Main -->
-        <jsp:include page="/include/footer.jsp" />
+        <jsp:include page="/include/footer.jsp" />        
         <!-- script references -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
