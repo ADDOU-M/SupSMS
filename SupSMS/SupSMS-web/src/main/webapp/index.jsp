@@ -30,6 +30,7 @@
             <div class="row">
                 <!-- Left column -->
                 <jsp:include page="include/menu.jsp" />
+                <jsp:include page="include/menuAdmin.jsp" />
                 <!-- /Left column -->
 
                 <div class="col-sm-9">
@@ -69,19 +70,21 @@
                             </div><!--/panel-->                  
                             <!--/tabs-->
                         </div><!--/col-->
-                        <div class="col-md-6">                         
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="panel-title">
-                                        <i class="glyphicon glyphicon-wrench pull-right"></i>
-                                        <c:url value="/sign-up" var="signUpUrl" />
-                                        <a href="${signUpUrl}"><h4>Inscription</h4></a>
-                                        <c:url value="/users" var="usersUrl" />
-                                        <a href="${usersUrl}"><h4>users</h4></a>
-                                    </div>
-                                </div>                                
-                            </div><!--/panel-->             
-                        </div><!--/col-span-6-->
+                        <c:choose>
+                            <c:when test="${empty user and empty admin}">
+                                <div class="col-md-6">                         
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                <i class="glyphicon glyphicon-wrench pull-right"></i>
+                                                <c:url value="/sign-up" var="signUpUrl" />
+                                                <a href="${signUpUrl}"><h4>Inscription</h4></a>                                        
+                                            </div>
+                                        </div>                                
+                                    </div><!--/panel-->             
+                                </div><!--/col-span-6-->
+                            </c:when>
+                        </c:choose>
                     </div><!--/row-->                   
                 </div><!--/col-span-9-->
             </div>

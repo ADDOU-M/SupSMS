@@ -34,13 +34,20 @@
                                 </ul>
                             </li>
                         </c:when>
+                        <c:when test="${not empty admin}">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+                                    <i class="glyphicon glyphicon-user"></i>Bienvenue ${fullName}
+                                </a>
+                            </li>
+                        </c:when>
                     </c:choose>
                     <li>
                         <c:choose>
-                            <c:when test="${not empty user}">
+                            <c:when test="${not empty user or not empty admin}">
                                 <c:url value="/logout" var="logoutUrl" />
                                 <a href="${logoutUrl}"><i class="glyphicon glyphicon-off">Logout</i></a>
-                            </c:when>
+                            </c:when>                            
                             <c:otherwise>
                                 <c:url value="/logger" var="loginUrl" />
                                 <a href="${loginUrl}"><i class="glyphicon glyphicon-user">Login</i></a>                                

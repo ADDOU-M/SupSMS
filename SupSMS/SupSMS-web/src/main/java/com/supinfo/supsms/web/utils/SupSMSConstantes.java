@@ -10,6 +10,8 @@ package com.supinfo.supsms.web.utils;
  *
  * @author Ekue_Weledji
  */
-public class SupSMSHandler {
+public class SupSMSConstantes  {
+    public static final String ADMIN_USERNAME = "admin";
+    public static final String ADMIN_PASSWORD = "admin";
     
 }

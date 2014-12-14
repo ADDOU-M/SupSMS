@@ -42,6 +42,7 @@ public class UtilisateurFiltreForm implements IFiltreForm {
         this.utilisateur = utilisateur;
     }
 
+    @Override
     public Query query(EntityManager em, String sortAttrib, String sortDir) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Utilisateur> c = cb.createQuery(Utilisateur.class);

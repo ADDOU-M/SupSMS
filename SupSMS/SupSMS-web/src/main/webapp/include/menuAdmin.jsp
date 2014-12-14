@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <c:choose>
-        <c:when test="${not empty user}">
+        <c:when test="${not empty admin}">
             <div class="col-sm-3">
                 <!-- Left column -->
                 <a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Menu </strong></a>  
@@ -17,13 +17,13 @@
 
                 <ul class="list-unstyled">
                     <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">
-                            <h5>Gestion contacts <i class="glyphicon glyphicon-chevron-down"></i></h5>
+                            <h5>Gestion des utilisateurs <i class="glyphicon glyphicon-chevron-down"></i></h5>
                         </a>
                         <ul class="list-unstyled collapse in" id="userMenu">
-                            <c:url value="/new-contact" var="addContactUrl" />
-                            <li> <a href="${addContactUrl}"><i class="glyphicon glyphicon-home"></i> Ajouter</a></li>
-                            <c:url value="/contacts" var="listContactUrl" />
-                            <li><a href="${listContactUrl}"><i class="glyphicon glyphicon-envelope"></i> Liste <span class="badge badge-info">${nombreContacts}</span></a></li>                            
+                            <c:url value="/search-user" var="searchUserUrl" />
+                            <li> <a href="${searchUserUrl}"><i class="glyphicon glyphicon-home"></i> Rechercher </a></li>
+                            <c:url value="/users" var="listUsersUrl" />
+                            <li><a href="${listUsersUrl}"><i class="glyphicon glyphicon-envelope"></i> Liste <span class="badge badge-info">${nombreContacts}</span></a></li>                            
                         </ul>
                     </li>
 

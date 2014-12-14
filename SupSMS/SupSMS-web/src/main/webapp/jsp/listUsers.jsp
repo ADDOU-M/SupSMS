@@ -30,7 +30,7 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- Left column -->
-                <jsp:include page="/include/menu.jsp" />
+                <jsp:include page="/include/menuAdmin.jsp" />
                 <!-- /Left column -->
 
                 <div class="col-sm-9">

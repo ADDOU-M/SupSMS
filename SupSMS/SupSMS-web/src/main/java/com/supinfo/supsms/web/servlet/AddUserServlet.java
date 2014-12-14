@@ -57,6 +57,7 @@ public class AddUserServlet extends HttpServlet {
                 this.authenticateUser(u, req);
                 resp.sendRedirect(getServletContext().getContextPath());
             } catch (Exception ex) {
+                req.setAttribute("userToUpdate", u);
                 resp.sendRedirect(req.getContextPath() + "/sign-up");
             }
         }

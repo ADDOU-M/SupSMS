@@ -6,6 +6,7 @@ package com.supinfo.supsms.web.servlet;
 
 import com.supinfo.supsms.entites.Utilisateur;
 import com.supinfo.supsms.service.IUtilisateurService;
+import com.supinfo.supsms.web.utils.SupSMSConstantes;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -35,6 +36,7 @@ public class LoggerServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         Utilisateur u = this.utilisateurService.getByLogin(login);
+
         if (u != null) {
             //vérification du mot de passe
             if (u.getPassword().equals(password)) {
@@ -44,10 +46,22 @@ public class LoggerServlet extends HttpServlet {
             } else {
                 doGet(req, resp);
             }
+        } else if (this.isAdminUser(login, password)) {
+            req.getSession().setAttribute("admin", login);
+            req.getSession().setAttribute("fullName", "ADMINISTRATEUR");
+            resp.sendRedirect(getServletContext().getContextPath());
+
         } else {
             doGet(req, resp);
         }
 
+    }
+
+    private boolean isAdminUser(String login, String password) {
+        if (login.equals(SupSMSConstantes.ADMIN_USERNAME) && password.equals(SupSMSConstantes.ADMIN_PASSWORD)) {
+            return true;
+        }
+        return false;
     }
 
 }

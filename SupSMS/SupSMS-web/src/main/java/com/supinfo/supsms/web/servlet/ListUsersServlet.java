@@ -6,8 +6,10 @@
 package com.supinfo.supsms.web.servlet;
 
 import com.supinfo.supsms.entites.Utilisateur;
+import com.supinfo.supsms.filtres.UtilisateurFiltreForm;
 import com.supinfo.supsms.service.IUtilisateurService;
 import java.util.List;
+import java.util.LinkedList;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -25,11 +27,34 @@ public class ListUsersServlet extends HttpServlet {
 
     @EJB
     IUtilisateurService utilisateurService;
-    
+    private UtilisateurFiltreForm filtre;
+    private List<Utilisateur> users;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Utilisateur> users = this.utilisateurService.lister();
+        if (this.filtre != null) {
+            this.users = this.utilisateurService.lister(this.filtre);
+        } else {
+            this.users = this.utilisateurService.lister();
+        }
         req.setAttribute("users", users);
         req.getRequestDispatcher("/jsp/listUsers.jsp").forward(req, resp);
     }
+
+    public UtilisateurFiltreForm getFiltre() {
+        return filtre;
+    }
+
+    public void setFiltre(UtilisateurFiltreForm filtre) {
+        this.filtre = filtre;
+    }
+
+    public IUtilisateurService getUtilisateurService() {
+        return utilisateurService;
+    }
+
+    public void setUtilisateurService(IUtilisateurService utilisateurService) {
+        this.utilisateurService = utilisateurService;
+    }
+
 }
