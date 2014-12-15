@@ -24,6 +24,8 @@ public interface IContactService extends IServiceGenerique<Contact, Integer> {
     
     public boolean alreadyExistsInAdressBook(String numeroTelephone, Carnet carnet);
     
+    public Contact getFromAdressBookByPhoneNumber(String numeroTelephone, Carnet c);
+    
     
 
 }

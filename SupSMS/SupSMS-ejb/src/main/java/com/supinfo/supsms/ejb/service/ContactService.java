@@ -56,7 +56,22 @@ public class ContactService extends ServiceGenerique<Contact, Integer> implement
 
     @Override
     public boolean alreadyExistsInAdressBook(String numeroTelephone, Carnet carnet) {
-        return this.contactDAO.alreadyExistsInAdressBook(numeroTelephone, carnet);
+        if (this.getFromAdressBookByPhoneNumber(numeroTelephone, carnet) != null) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    @Override
+    public Contact getFromAdressBookByPhoneNumber(String numeroTelephone, Carnet c) {
+        try {
+            return this.getDAO().getFromAdressBookByPhoneNumber(numeroTelephone, c);
+        } catch (Exception ex) {
+            Logger.getLogger(ContactService.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
 }

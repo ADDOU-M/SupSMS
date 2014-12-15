@@ -18,6 +18,6 @@ import javax.ejb.Remote;
 public interface IMessageDAO extends IDAOGenerique<Message, Integer> {
 
     public List<Message> listerParUtilisateur(Integer idUtilisateur);
-    public List<Message> conversation(Integer idUtilisateur, Integer idContact);
+    public List<Message> conversation(String numeroUtilisateur, String numeroContact);
 
 }

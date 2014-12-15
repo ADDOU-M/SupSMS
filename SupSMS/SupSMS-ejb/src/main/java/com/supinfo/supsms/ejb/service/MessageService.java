@@ -55,9 +55,9 @@ public class MessageService extends ServiceGenerique<Message, Integer> implement
     }
 
     @Override
-    public List<Message> conversation(Integer idUtilisateur, Integer idContact) {
+    public List<Message> conversation(String numeroUtilisateur, String numeroContact) {
         try {
-            return this.messageDAO.conversation(idUtilisateur, idContact);
+            return this.messageDAO.conversation(numeroUtilisateur, numeroContact);
         } catch (Exception ex) {
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
             return Collections.EMPTY_LIST;

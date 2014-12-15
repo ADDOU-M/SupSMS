@@ -32,7 +32,7 @@
                         </a>
 
                         <ul class="list-unstyled collapse" id="menu2">
-                            <li><a href="#">Information &amp; Stats</a>
+                            <li><a href="#">Nouveau Message</a>
                             </li>
                             <li><a href="#">Views</a>
                             </li>

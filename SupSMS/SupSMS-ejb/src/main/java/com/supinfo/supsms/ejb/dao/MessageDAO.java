@@ -31,10 +31,10 @@ public class MessageDAO extends DAOGenerique<Message, Integer> implements IMessa
     }
 
     @Override
-    public List<Message> conversation(Integer idUtilisateur, Integer idContact) {
-        Query q = em.createQuery("SELECT m FROM Message m WHERE m.emetteur.id =:idUtilisateur AND m.recepteur.id =:idContact");
-        q.setParameter("idUtilisateur", idUtilisateur);
-        q.setParameter("idContact", idContact);
+    public List<Message> conversation(String numeroUtilisateur, String numeroContact) {
+        Query q = em.createQuery("SELECT m FROM Message m WHERE m.numeroEmetteur =:numeroUtilisateur AND m.numeroRecepteur =:numeroContact");
+        q.setParameter("numeroUtilisateur", numeroUtilisateur);
+        q.setParameter("numeroRecepteur", numeroContact);
         return q.getResultList();
     }
 

@@ -32,16 +32,11 @@ public class ContactDAO extends DAOGenerique<Contact, Integer> implements IConta
     }
 
     @Override
-    public boolean alreadyExistsInAdressBook(String numeroTelephone, Carnet carnet) {
+    public Contact getFromAdressBookByPhoneNumber(String numeroTelephone, Carnet carnet) {
         Query q = em.createQuery("SELECT c FROM Contact c WHERE c.numeroTelephone =:numeroTelephone AND c.carnet.id =:idCarnet ");
         q.setParameter("numeroTelephone", numeroTelephone);
         q.setParameter("idCarnet", carnet.getId());
-        try {
-            q.getSingleResult();
-            return true;
-        } catch (Exception ex) {
-            return false;
-        }
+        return (Contact) q.getSingleResult();
     }
 
 }

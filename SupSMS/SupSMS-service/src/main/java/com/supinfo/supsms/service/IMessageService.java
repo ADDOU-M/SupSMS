@@ -22,6 +22,6 @@ public interface IMessageService extends IServiceGenerique<Message, Integer> {
 
     public List<Message> listerParUtilisateur(Utilisateur u);
 
-    public List<Message> conversation(Integer idUtilisateur, Integer idContact);
+    public List<Message> conversation(String numeroUtilisateur, String numeroContact);
 
 }

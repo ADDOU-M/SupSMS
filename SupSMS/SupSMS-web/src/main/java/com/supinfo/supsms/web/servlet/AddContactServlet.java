@@ -55,9 +55,13 @@ public class AddContactServlet extends HttpServlet {
         } else {
             c = this.contactService.recuperer(Integer.valueOf(req.getParameter("id")));
             this.getValuesFromForm(c, req);
-            this.contactService.modifier(c);  
+            //vérification des numéros de téléphone
+            Contact c1 = this.contactService.getFromAdressBookByPhoneNumber(c.getNumeroTelephone(), c.getCarnet());
+            if (((c1 != null) && (c1.equals(c))) || (c1 == null)) {
+                this.contactService.modifier(c);
+            }
             resp.sendRedirect(req.getContextPath() + "/contacts");
-        }        
+        }
 
     }
 

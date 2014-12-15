@@ -20,6 +20,6 @@ public interface IContactDAO extends IDAOGenerique<Contact, Integer> {
 
     public List<Contact> listerParCarnet(Integer idCarnet);
 
-    public boolean alreadyExistsInAdressBook(String numeroTelephone, Carnet carnet);
+    public Contact getFromAdressBookByPhoneNumber(String numeroTelephone, Carnet carnet);
 
 }

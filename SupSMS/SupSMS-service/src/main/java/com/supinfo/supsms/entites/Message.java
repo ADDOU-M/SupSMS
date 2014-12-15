@@ -35,16 +35,14 @@ public class Message extends BaseEntite {
     @Column(name = "CONTENU")
     private String contenu;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_UTILISATEUR")
-    private Utilisateur emetteur;
-    
-    @ManyToOne
-    @JoinColumn(name = "ID_CONTACT")
-    private Contact recepteur;
-    
+    @Column(name = "NUMERO_EMETTEUR")
+    private String numeroEmetteur;
+
+    @Column(name = "NUMERO_RECEPTEUR")
+    private String numeroRecepteur;
+
     @Temporal(TemporalType.DATE)
-    @Column(name="DATE_ENVOI")
+    @Column(name = "DATE_ENVOI")
     private Date dateEnvoi;
 
     public Integer getId() {
@@ -63,20 +61,20 @@ public class Message extends BaseEntite {
         this.contenu = contenu;
     }
 
-    public Utilisateur getEmetteur() {
-        return emetteur;
+    public String getNumeroEmetteur() {
+        return numeroEmetteur;
     }
 
-    public void setEmetteur(Utilisateur emetteur) {
-        this.emetteur = emetteur;
+    public void setNumeroEmetteur(String numeroEmetteur) {
+        this.numeroEmetteur = numeroEmetteur;
     }
 
-    public Contact getRecepteur() {
-        return recepteur;
+    public String getNumeroRecepteur() {
+        return numeroRecepteur;
     }
 
-    public void setRecepteur(Contact recepteur) {
-        this.recepteur = recepteur;
+    public void setNumeroRecepteur(String numeroRecepteur) {
+        this.numeroRecepteur = numeroRecepteur;
     }
 
     public Date getDateEnvoi() {
@@ -108,7 +106,5 @@ public class Message extends BaseEntite {
         }
         return true;
     }
-    
-    
 
 }
