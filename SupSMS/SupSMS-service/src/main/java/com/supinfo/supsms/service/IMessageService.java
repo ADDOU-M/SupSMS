@@ -5,7 +5,7 @@
  */
 package com.supinfo.supsms.service;
 
-import com.supinfo.supsms.entites.Message;
+import com.supinfo.supsms.entites.SMS;
 import com.supinfo.supsms.entites.Utilisateur;
 import com.supinfo.supsms.generiques.interfaces.IServiceGenerique;
 import java.util.List;
@@ -16,12 +16,12 @@ import javax.ejb.Remote;
  * @author Ekue_Weledji
  */
 @Remote
-public interface IMessageService extends IServiceGenerique<Message, Integer> {
+public interface IMessageService extends IServiceGenerique<SMS, Integer> {
 
-    public List<Message> listerParUtilisateur(Integer idUtilisateur);
+    public List<SMS> listerParUtilisateur(Integer idUtilisateur);
 
-    public List<Message> listerParUtilisateur(Utilisateur u);
+    public List<SMS> listerParUtilisateur(Utilisateur u);
 
-    public List<Message> conversation(String numeroUtilisateur, String numeroContact);
+    public List<SMS> conversation(String numeroUtilisateur, String numeroContact);
 
 }

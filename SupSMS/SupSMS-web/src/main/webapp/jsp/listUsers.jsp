@@ -50,8 +50,37 @@
                                             <td><c:out value="${user.nom}" /></td>
                                             <td><c:out value="${user.prenom}" /></td>
                                             <td><c:out value="${user.numeroTelephone}" /></td>
+                                            <td>
+                                                <c:url value="/sign-up" var="updateUserUrl">
+                                                    <c:param name="login" value="${user.login}" />
+                                                </c:url>
+                                                <a href="${updateUserUrl}">Modifier</a>
+                                            </td>
+                                            <td>
+                                                <a title="Delete User" data-toggle="modal" href="#deleteUserModal${user.id}">Supprimer</a>
+                                            </td>
                                         </tr>
-                                    </c:forEach>                                    
+                                    <div class="modal" id="deleteUserModal${user.id}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h4 class="modal-title">Supprimer un utilisateur</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Voulez vous vraiment supprimer ce utilisateur?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="#" data-dismiss="modal" class="btn">Annuler</a>
+                                                    <c:url value="/deleteUser" var="deleteUserUrl">
+                                                        <c:param name="id" value="${user.id}" />
+                                                    </c:url>
+                                                    <a href="${deleteUserUrl}" class="btn btn-primary">Supprimer</a>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dalog -->
+                                    </div><!-- /.modal -->
+                                </c:forEach>                                    
                                 </tbody>
                             </table>                                       
                         </div><!--/col-span-6-->

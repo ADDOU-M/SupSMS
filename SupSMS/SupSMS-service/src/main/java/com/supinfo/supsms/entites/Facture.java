@@ -31,20 +31,16 @@ public class Facture extends BaseEntite {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "FACTURE_GEN")
     private Integer id;
-    
-    @ManyToOne
-    @JoinColumn(name = "ID_OFFRE")
-    private Offre offre;
-    
+
     @ManyToOne
     @JoinColumn(name = "ID_UTILISATEUR")
     private Utilisateur utilisateur;
-    
+
     @Column(name = "IS_PAID")
     private Boolean isPaid;
-    
+
     @Temporal(TemporalType.DATE)
-    @Column(name="DATE_PAIEMENT")
+    @Column(name = "DATE_PAIEMENT")
     private Date datePaiement;
 
     public Integer getId() {
@@ -53,14 +49,6 @@ public class Facture extends BaseEntite {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Offre getOffre() {
-        return offre;
-    }
-
-    public void setOffre(Offre offre) {
-        this.offre = offre;
     }
 
     public Utilisateur getUtilisateur() {
@@ -108,7 +96,5 @@ public class Facture extends BaseEntite {
         }
         return true;
     }
-    
-    
 
 }

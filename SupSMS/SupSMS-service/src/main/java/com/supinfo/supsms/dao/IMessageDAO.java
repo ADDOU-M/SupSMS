@@ -5,7 +5,7 @@
  */
 package com.supinfo.supsms.dao;
 
-import com.supinfo.supsms.entites.Message;
+import com.supinfo.supsms.entites.SMS;
 import com.supinfo.supsms.generiques.interfaces.IDAOGenerique;
 import java.util.List;
 import javax.ejb.Remote;
@@ -15,9 +15,9 @@ import javax.ejb.Remote;
  * @author Ekue_Weledji
  */
 @Remote
-public interface IMessageDAO extends IDAOGenerique<Message, Integer> {
+public interface IMessageDAO extends IDAOGenerique<SMS, Integer> {
 
-    public List<Message> listerParUtilisateur(Integer idUtilisateur);
-    public List<Message> conversation(String numeroUtilisateur, String numeroContact);
+    public List<SMS> listerParUtilisateur(Integer idUtilisateur);
+    public List<SMS> conversation(String numeroUtilisateur, String numeroContact);
 
 }

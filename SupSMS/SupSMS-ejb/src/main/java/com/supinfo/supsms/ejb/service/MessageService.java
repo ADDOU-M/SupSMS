@@ -6,7 +6,7 @@
 package com.supinfo.supsms.ejb.service;
 
 import com.supinfo.supsms.dao.IMessageDAO;
-import com.supinfo.supsms.entites.Message;
+import com.supinfo.supsms.entites.SMS;
 import com.supinfo.supsms.entites.Utilisateur;
 import com.supinfo.supsms.generiques.implementation.ServiceGenerique;
 import com.supinfo.supsms.service.IMessageService;
@@ -22,7 +22,7 @@ import javax.ejb.Stateless;
  * @author Ekue_Weledji
  */
 @Stateless
-public class MessageService extends ServiceGenerique<Message, Integer> implements IMessageService {
+public class MessageService extends ServiceGenerique<SMS, Integer> implements IMessageService {
 
     @EJB
     private IMessageDAO messageDAO;
@@ -40,26 +40,26 @@ public class MessageService extends ServiceGenerique<Message, Integer> implement
     }
 
     @Override
-    public List<Message> listerParUtilisateur(Integer idUtilisateur) {
+    public List<SMS> listerParUtilisateur(Integer idUtilisateur) {
         try {
             return this.messageDAO.listerParUtilisateur(idUtilisateur);
         } catch (Exception ex) {
-            Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SMS.class.getName()).log(Level.SEVERE, null, ex);
             return Collections.EMPTY_LIST;
         }
     }
 
     @Override
-    public List<Message> listerParUtilisateur(Utilisateur u) {
+    public List<SMS> listerParUtilisateur(Utilisateur u) {
         return this.listerParUtilisateur(u.getId());
     }
 
     @Override
-    public List<Message> conversation(String numeroUtilisateur, String numeroContact) {
+    public List<SMS> conversation(String numeroUtilisateur, String numeroContact) {
         try {
             return this.messageDAO.conversation(numeroUtilisateur, numeroContact);
         } catch (Exception ex) {
-            Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SMS.class.getName()).log(Level.SEVERE, null, ex);
             return Collections.EMPTY_LIST;
         }
     }

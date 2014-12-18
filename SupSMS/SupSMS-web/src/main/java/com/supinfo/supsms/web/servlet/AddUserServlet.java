@@ -6,8 +6,11 @@
 package com.supinfo.supsms.web.servlet;
 
 import com.supinfo.supsms.entites.Carnet;
+import com.supinfo.supsms.entites.Facture;
 import com.supinfo.supsms.entites.Utilisateur;
+import com.supinfo.supsms.service.IFactureService;
 import com.supinfo.supsms.service.IUtilisateurService;
+import java.util.Calendar;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -25,6 +28,9 @@ public class AddUserServlet extends HttpServlet {
 
     @EJB
     private IUtilisateurService utilisateurService;
+
+    @EJB
+    private IFactureService factureService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -44,6 +50,9 @@ public class AddUserServlet extends HttpServlet {
             u.setCarnet(new Carnet());
             try {
                 this.utilisateurService.ajouter(u);
+                Utilisateur u1 = this.utilisateurService.getByLogin(u.getLogin());
+                Facture f = this.genererFacture(u1);
+                this.factureService.ajouter(f);
                 this.authenticateUser(u, req);
                 resp.sendRedirect(getServletContext().getContextPath());
             } catch (Exception ex) {
@@ -54,7 +63,9 @@ public class AddUserServlet extends HttpServlet {
             this.getValuesFromForm(u, req);
             try {
                 this.utilisateurService.modifier(u);
-                this.authenticateUser(u, req);
+                if (req.getSession().getAttribute("user") != null) {
+                    this.authenticateUser(u, req);
+                }
                 resp.sendRedirect(getServletContext().getContextPath());
             } catch (Exception ex) {
                 req.setAttribute("userToUpdate", u);
@@ -86,6 +97,14 @@ public class AddUserServlet extends HttpServlet {
     private void authenticateUser(Utilisateur u, HttpServletRequest req) {
         req.getSession().setAttribute("user", u.getLogin());
         req.getSession().setAttribute("fullName", u.getFullName());
+    }
+
+    private Facture genererFacture(Utilisateur u) {
+        Facture f = new Facture();
+        f.setUtilisateur(u);
+        f.setIsPaid(Boolean.TRUE);
+        f.setDatePaiement(Calendar.getInstance().getTime());
+        return f;
     }
 
 }

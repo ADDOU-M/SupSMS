@@ -32,16 +32,11 @@
                         </a>
 
                         <ul class="list-unstyled collapse" id="menu2">
-                            <li><a href="#">Nouveau Message</a>
+                            <c:url value="/send-sms" var="sendSMSUrl" />
+                            <li><a href="${sendSMSUrl}">Nouveau Message</a>
                             </li>
-                            <li><a href="#">Views</a>
-                            </li>
-                            <li><a href="#">Requests</a>
-                            </li>
-                            <li><a href="#">Timetable</a>
-                            </li>
-                            <li><a href="#">Alerts</a>
-                            </li>
+                            <li><a href="#">Conversations</a>
+                            </li>                            
                         </ul>
                     </li>
                     <li class="nav-header">

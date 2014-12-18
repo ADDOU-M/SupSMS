@@ -11,8 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -25,7 +23,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "MESSAGE")
 @SequenceGenerator(name = "MESSAGE_GEN", sequenceName = "MESSAGE_SEQ")
-public class Message extends BaseEntite {
+public class SMS extends BaseEntite {
 
     @Id
     @Column(name = "ID")
@@ -100,7 +98,7 @@ public class Message extends BaseEntite {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Message other = (Message) obj;
+        final SMS other = (SMS) obj;
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
