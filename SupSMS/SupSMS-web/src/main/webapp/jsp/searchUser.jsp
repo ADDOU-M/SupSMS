@@ -49,7 +49,7 @@
                                                 <div class="control-group">
                                                     <label>Nom:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="nom" class="form-control" placeholder="votre nom">
+                                                        <input type="text" name="nom" class="form-control" placeholder="nom">
                                                     </div>
                                                 </div> 
                                             </div>
@@ -57,7 +57,7 @@
                                                 <div class="control-group">
                                                     <label>Prénom:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="prenom" class="form-control" placeholder="votre prénom">
+                                                        <input type="text" name="prenom" class="form-control" placeholder="prénom">
                                                     </div>
                                                 </div> 
                                             </div>

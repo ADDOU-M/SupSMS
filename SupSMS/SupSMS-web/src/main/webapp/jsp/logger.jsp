@@ -33,7 +33,7 @@
 
                 <div class="col-sm-9">
                     <h4>Login Form</h4>
-                    <form class="form-inline" method="POST">
+                    <form id="connexion-form" class="form-inline" method="POST">
                         <input name="login" type="text" class="input-small" placeholder="login"/>
                         <input name="password" type="password" class="input-small" placeholder="password"/> 
                         <input type="submit" value="Submit" />

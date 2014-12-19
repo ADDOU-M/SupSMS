@@ -84,7 +84,7 @@
                                                 <div class="control-group">
                                                     <label>Boîte postale:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="boitePostale" value="${contact.boitePostale}" class="form-control" placeholder="Numéro carte de crédit">
+                                                        <input type="text" name="boitePostale" value="${contact.boitePostale}" class="form-control" placeholder="boite postale">
                                                     </div>
                                                 </div> 
                                             </div>                                            
