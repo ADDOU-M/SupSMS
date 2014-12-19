@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-        <title>SupSMS | List Users</title>
+        <title>SupSMS | List Invoices</title>
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,6 +30,7 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- Left column -->
+                <jsp:include page="/include/menu.jsp" />
                 <jsp:include page="/include/menuAdmin.jsp" />
                 <!-- /Left column -->
 
@@ -42,39 +43,20 @@
                                         <th>Nom</th>
                                         <th>Prénom</th>
                                         <th>Téléphone</th>
+                                        <th>Montant</th>
+                                        <th>Date de paiement</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${users}" var="user">
+                                    <c:forEach items="${factures}" var="facture">
                                         <tr>
-                                            <td><c:out value="${user.nom}" /></td>
-                                            <td><c:out value="${user.prenom}" /></td>
-                                            <td><c:out value="${user.numeroTelephone}" /></td>                                            
-                                            <td>
-                                                <a title="Delete User" data-toggle="modal" href="#deleteUserModal${user.id}">Supprimer</a>
-                                            </td>
+                                            <td><c:out value="${facture.utilisateur.nom}" /></td>
+                                            <td><c:out value="${facture.utilisateur.prenom}" /></td>
+                                            <td><c:out value="${facture.utilisateur.numeroTelephone}" /></td>
+                                            <td><c:out value="${facture.montant}" /></td>
+                                            <td><c:out value="${facture.datePaiement}" /></td>                                            
                                         </tr>
-                                    <div class="modal" id="deleteUserModal${user.id}">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                    <h4 class="modal-title">Supprimer un utilisateur</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>Voulez vous vraiment supprimer ce utilisateur?</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <a href="#" data-dismiss="modal" class="btn">Annuler</a>
-                                                    <c:url value="/deleteUser" var="deleteUserUrl">
-                                                        <c:param name="id" value="${user.id}" />
-                                                    </c:url>
-                                                    <a href="${deleteUserUrl}" class="btn btn-primary">Supprimer</a>
-                                                </div>
-                                            </div><!-- /.modal-content -->
-                                        </div><!-- /.modal-dalog -->
-                                    </div><!-- /.modal -->
-                                </c:forEach>                                    
+                                    </c:forEach>                                    
                                 </tbody>
                             </table>                                       
                         </div><!--/col-span-6-->

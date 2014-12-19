@@ -5,7 +5,9 @@
  */
 package com.supinfo.supsms.web.servlet;
 
+import com.supinfo.supsms.entites.Contact;
 import com.supinfo.supsms.entites.SMS;
+import com.supinfo.supsms.service.IContactService;
 import java.io.IOException;
 import javax.annotation.Resource;
 import javax.jms.ConnectionFactory;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Calendar;
+import javax.ejb.EJB;
 import javax.jms.Connection;
 import javax.jms.JMSException;
 import javax.jms.MessageProducer;
@@ -29,6 +32,8 @@ import javax.jms.Session;
 @WebServlet(name = "SendSMSServlet", urlPatterns = {"/send-sms"})
 public class SendSMSServlet extends HttpServlet {
 
+    @EJB
+    IContactService contactService;
     @Resource(mappedName = "NewMessageFactory")
     private ConnectionFactory connectionFactory;
     @Resource(mappedName = "NewMessage")
@@ -36,6 +41,11 @@ public class SendSMSServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getParameter("id") != null) {
+            Integer id = Integer.valueOf(req.getParameter("id"));
+            Contact c = this.contactService.recuperer(id);
+            req.setAttribute("contact", c);
+        }
         req.getRequestDispatcher("/jsp/sendSMS.jsp").forward(req, resp);
     }
 
@@ -47,7 +57,7 @@ public class SendSMSServlet extends HttpServlet {
         s.setNumeroEmetteur(req.getSession().getAttribute("user").toString());
         s.setDateEnvoi(Calendar.getInstance().getTime());
         if (this.sendSMS(s)) {
-            resp.sendRedirect("ListNews");
+            resp.sendRedirect("/jsp/conversation");
         }
 
     }

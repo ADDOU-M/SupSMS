@@ -44,13 +44,13 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <form id="add-contact-form" class="form form-vertical" method="POST">                                        
+                                    <form id="send-message-form" class="form form-vertical" method="POST">                                        
                                         <div class="row">
                                             <div class="col-sm-8">
                                                 <div class="control-group">
                                                     <label>Numéro destinataire:</label>
                                                     <div class="controls">
-                                                        <input type="text" name="numeroRecepteur" value="${contact.nom}" class="form-control" placeholder="votre nom">
+                                                        <input type="text" name="numeroRecepteur" value="${contact.numeroTelephone}" class="form-control" placeholder="numéro du destinataire">
                                                     </div>
                                                 </div> 
                                             </div>                                                                                        

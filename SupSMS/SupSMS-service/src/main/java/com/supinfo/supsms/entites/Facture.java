@@ -39,6 +39,9 @@ public class Facture extends BaseEntite {
     @Column(name = "IS_PAID")
     private Boolean isPaid;
 
+    @Column(name = "MONTANT")
+    private Double montant;
+
     @Temporal(TemporalType.DATE)
     @Column(name = "DATE_PAIEMENT")
     private Date datePaiement;
@@ -57,6 +60,14 @@ public class Facture extends BaseEntite {
 
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
+    }
+
+    public Double getMontant() {
+        return montant;
+    }
+
+    public void setMontant(Double montant) {
+        this.montant = montant;
     }
 
     public Boolean isIsPaid() {

@@ -32,7 +32,7 @@ public class FactureDAO extends DAOGenerique<Facture, Integer> implements IFactu
 
     @Override
     public List<Facture> listerParUtilisateur(Integer idUtilisateur) {
-        Query q = em.createQuery("SELECT f FROM Facture f WHERE f.utilisateur.id =:idUtilisateur");
+        Query q = em.createQuery("SELECT f FROM Facture f WHERE f.utilisateur.id =:idUtilisateur ORDER BY f.datePaiement DESC");
         q.setParameter("idUtilisateur", idUtilisateur);
         return q.getResultList();
     }

@@ -51,6 +51,12 @@
                                             <td><c:out value="${contact.prenom}" /></td>
                                             <td><c:out value="${contact.numeroTelephone}" /></td>
                                             <td>
+                                                <c:url value="/send-sms" var="sendSMSUrl">
+                                                    <c:param name="id" value="${contact.id}" />
+                                                </c:url>
+                                                <a href="${sendSMSUrl}">SMS</a>
+                                            </td>
+                                            <td>
                                                 <c:url value="/new-contact" var="updateContactUrl">
                                                     <c:param name="id" value="${contact.id}" />
                                                 </c:url>

@@ -11,5 +11,6 @@
     <module>SupSMS-web</module>
     <module>SupSMS-ejb</module>
     <module>SupSMS-service</module>
+    <module>SupSMS-WS</module>
   </modules>
 </project>

@@ -10,6 +10,7 @@ import com.supinfo.supsms.entites.Facture;
 import com.supinfo.supsms.entites.Utilisateur;
 import com.supinfo.supsms.service.IFactureService;
 import com.supinfo.supsms.service.IUtilisateurService;
+import com.supinfo.supsms.web.utils.SupSMSConstantes;
 import java.util.Calendar;
 import java.io.IOException;
 import javax.ejb.EJB;
@@ -97,11 +98,13 @@ public class AddUserServlet extends HttpServlet {
     private void authenticateUser(Utilisateur u, HttpServletRequest req) {
         req.getSession().setAttribute("user", u.getLogin());
         req.getSession().setAttribute("fullName", u.getFullName());
+        req.getSession().setAttribute("msgEnabled", Boolean.TRUE);
     }
 
     private Facture genererFacture(Utilisateur u) {
         Facture f = new Facture();
         f.setUtilisateur(u);
+        f.setMontant(SupSMSConstantes.OFFER_AMOUNT);
         f.setIsPaid(Boolean.TRUE);
         f.setDatePaiement(Calendar.getInstance().getTime());
         return f;

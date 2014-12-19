@@ -27,33 +27,16 @@
                         </ul>
                     </li>
 
-                    <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#menu2">
-                            <h5>Messagerie <i class="glyphicon glyphicon-chevron-right"></i></h5>
-                        </a>
-
-                        <ul class="list-unstyled collapse" id="menu2">
-                            <li><a href="#">Information &amp; Stats</a>
-                            </li>
-                            <li><a href="#">Views</a>
-                            </li>
-                            <li><a href="#">Requests</a>
-                            </li>
-                            <li><a href="#">Timetable</a>
-                            </li>
-                            <li><a href="#">Alerts</a>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="nav-header">
                         <a href="#" data-toggle="collapse" data-target="#menu3">
-                            <h5>Social Media <i class="glyphicon glyphicon-chevron-right"></i></h5>
+                            <h5>Facturations <i class="glyphicon glyphicon-chevron-right"></i></h5>
                         </a>
 
                         <ul class="list-unstyled collapse" id="menu3">
-                            <li><a href="#"><i class="glyphicon glyphicon-circle"></i> Facebook</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-circle"></i> Twitter</a></li>
+                            <c:url value="/list-invoices" var="listInvoicesUrl" />
+                            <li><a href="${listInvoicesUrl}"><i class="glyphicon glyphicon-circle"></i> Les factures</a></li>
                         </ul>
-                    </li>
+                    </li>                   
                 </ul>
             </div><!-- /col-3 -->
 

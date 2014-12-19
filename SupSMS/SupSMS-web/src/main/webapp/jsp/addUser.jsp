@@ -58,7 +58,7 @@
                                                     <div class="controls">
                                                         <input type="text" name="nom" value="${userToUpdate.nom}" class="form-control" placeholder="votre nom">
                                                     </div>
-                                                </div> 
+                                                </div>                                                
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="control-group">

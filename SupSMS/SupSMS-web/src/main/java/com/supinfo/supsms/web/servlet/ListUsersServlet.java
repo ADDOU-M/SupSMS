@@ -9,7 +9,6 @@ import com.supinfo.supsms.entites.Utilisateur;
 import com.supinfo.supsms.filtres.UtilisateurFiltreForm;
 import com.supinfo.supsms.service.IUtilisateurService;
 import java.util.List;
-import java.util.LinkedList;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
