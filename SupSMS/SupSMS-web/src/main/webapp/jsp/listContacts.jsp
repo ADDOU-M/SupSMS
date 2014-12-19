@@ -57,6 +57,12 @@
                                                 <a href="${sendSMSUrl}">SMS</a>
                                             </td>
                                             <td>
+                                                <c:url value="/conversation" var="conversationUrl">
+                                                    <c:param name="id" value="${contact.id}" />
+                                                </c:url>
+                                                <a href="${conversationUrl}">Conversation</a>
+                                            </td>
+                                            <td>
                                                 <c:url value="/new-contact" var="updateContactUrl">
                                                     <c:param name="id" value="${contact.id}" />
                                                 </c:url>

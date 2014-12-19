@@ -5,7 +5,9 @@
  */
 package com.supinfo.supsms.web.servlet;
 
+import com.supinfo.supsms.entites.Contact;
 import com.supinfo.supsms.entites.SMS;
+import com.supinfo.supsms.service.IContactService;
 import com.supinfo.supsms.service.IMessageService;
 import java.io.IOException;
 import java.util.List;
@@ -25,10 +27,17 @@ public class ConversationServlet extends HttpServlet {
 
     @EJB
     private IMessageService messageService;
+    @EJB
+    private IContactService contactService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<SMS> messages = this.messageService.conversation(req.getSession().getAttribute("user").toString(), null);
+        Integer id = Integer.valueOf(req.getParameter("id"));
+        Contact c = this.contactService.recuperer(id);
+        List<SMS> conversation = this.messageService.conversation(req.getSession().getAttribute("user").toString(), c.getNumeroTelephone());
+        req.setAttribute("conversation", conversation);
+        req.setAttribute("contact", c);
+        req.getRequestDispatcher("/jsp/conversation.jsp").forward(req, resp);
 
     }
 

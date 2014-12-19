@@ -57,7 +57,7 @@ public class SendSMSServlet extends HttpServlet {
         s.setNumeroEmetteur(req.getSession().getAttribute("user").toString());
         s.setDateEnvoi(Calendar.getInstance().getTime());
         if (this.sendSMS(s)) {
-            resp.sendRedirect("/jsp/conversation");
+            resp.sendRedirect(req.getContextPath() + "/send-sms");
         }
 
     }

@@ -1,17 +1,68 @@
 <%-- 
-    Document   : conversation
-    Created on : 18 déc. 2014, 23:28:17
+    Document   : listUsers
+    Created on : 12 déc. 2014, 11:52:54
     Author     : Ekue_Weledji
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>SupSMS | Conversation</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+                <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!--test-->
+        <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <!-- Header -->
+        <jsp:include page="/include/header.jsp" />
+        <!-- /Header -->        
+
+        <!-- Main -->
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Left column -->
+                <jsp:include page="/include/menuAdmin.jsp" />
+                <!-- /Left column -->
+
+                <div class="col-sm-9">
+                    <div class="row">                       
+                        <div class="col-md-12"> 
+                            <h4>Votre conversation avec ${contact.nom}</h4>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Contenu du message</th>
+                                        <th>Date d'envoi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${conversation}" var="sms">
+                                        <tr>
+                                            <td><c:out value="${sms.contenu}" /></td>
+                                            <td><c:out value="${sms.dateEnvoi}" /></td>                                            
+                                        </tr>                                    
+                                    </c:forEach>                                    
+                                </tbody>
+                            </table>                                       
+                        </div><!--/col-span-6-->
+                    </div><!--/row-->                   
+                </div><!--/col-span-9-->
+            </div>
+        </div>
+        <!-- /Main -->
+        <jsp:include page="/include/footer.jsp" />
+        <!-- script references -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>
