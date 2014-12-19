@@ -35,41 +35,7 @@
 
                 <div class="col-sm-9">
                     <div class="row">
-                        <!-- center left-->	
-                        <div class="col-md-6"> 
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><h4>Reports</h4></div>
-                                <div class="panel-body">
-
-                                    <small>Success</small>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
-                                            <span class="sr-only">72% Complete</span>
-                                        </div>
-                                    </div>
-                                    <small>Info</small>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                            <span class="sr-only">20% Complete</span>
-                                        </div>
-                                    </div>
-                                    <small>Warning</small>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>
-                                    <small>Danger</small>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            <span class="sr-only">80% Complete</span>
-                                        </div>
-                                    </div>
-
-                                </div><!--/panel-body-->
-                            </div><!--/panel-->                  
-                            <!--/tabs-->
-                        </div><!--/col-->
+                        <!-- center left-->                        
                         <c:choose>
                             <c:when test="${empty user and empty admin}">
                                 <div class="col-md-6">                         
@@ -77,14 +43,64 @@
                                         <div class="panel-heading">
                                             <div class="panel-title">
                                                 <i class="glyphicon glyphicon-wrench pull-right"></i>
+                                                <a><h4>SUPSMS</h4></a>                                        
+                                            </div>
+                                            <div class="panel-title">
+                                                <p>
+                                                    Bienvenue sur SUPSMS, le site d'envoi de SMS en illimité<br/>
+                                                    Souscrivez à notre offre exclusive de 10 $ par mois pour pouvoir envoyer des SMS à tous vos contacts partout dans le monde et de façon illimitée<br/>
+                                                    Inscrivez-vous rapidement en cliquant sur le lien ci-dessous.                                                    
+                                                </p>
                                                 <c:url value="/sign-up" var="signUpUrl" />
-                                                <a href="${signUpUrl}"><h4>Inscription</h4></a>                                        
+                                                <div class="control-group">
+                                                    <label></label>
+                                                    <div class="controls pull-right">
+                                                        <a href="${signUpUrl}"><button class="btn btn-primary">
+                                                                Inscription
+                                                            </button></a>                                                        
+                                                    </div>
+                                                </div><br/>
                                             </div>
                                         </div>                                
                                     </div><!--/panel-->             
                                 </div><!--/col-span-6-->
-                            </c:when>
-                        </c:choose>
+
+                                <div class="col-md-6"> 
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading"><h4>Reports</h4></div>
+                                        <div class="panel-body">
+
+                                            <small>Success</small>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
+                                                    <span class="sr-only">72% Complete</span>
+                                                </div>
+                                            </div>
+                                            <small>Info</small>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                                    <span class="sr-only">20% Complete</span>
+                                                </div>
+                                            </div>
+                                            <small>Warning</small>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                    <span class="sr-only">60% Complete (warning)</span>
+                                                </div>
+                                            </div>
+                                            <small>Danger</small>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                    <span class="sr-only">80% Complete</span>
+                                                </div>
+                                            </div>
+
+                                        </div><!--/panel-body-->
+                                    </div><!--/panel-->                  
+                                    <!--/tabs-->
+                                </c:when>
+                            </c:choose>
+                        </div><!--/col-->
                     </div><!--/row-->                   
                 </div><!--/col-span-9-->
             </div>

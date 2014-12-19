@@ -16,7 +16,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">SupSMS</a>
+                <c:url value="/" var="indexUpUrl" />
+                <a class="navbar-brand" href="${signUpUrl}">SupSMS</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
