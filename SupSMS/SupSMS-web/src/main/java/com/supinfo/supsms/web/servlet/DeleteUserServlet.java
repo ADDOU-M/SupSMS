@@ -44,13 +44,19 @@ public class DeleteUserServlet extends HttpServlet {
         Utilisateur u = this.utilisateurService.recuperer(id);
         //supression de ses contacts
         List<Contact> contacts = this.contactService.listerParCarnet(u.getCarnet());
-        this.contactService.supprimer(contacts);
+        if (!contacts.isEmpty()) {
+            this.contactService.supprimer(contacts);
+        }
         //supression de ses factures
         List<Facture> factures = this.factureService.listerParUtilisateur(u);
-        this.factureService.supprimer(factures);
+        if (!factures.isEmpty()) {
+            this.factureService.supprimer(factures);
+        }
         //supression de ses messages
-        List<SMS> messages = this.messageService.listerParUtilisateur(u);
-        this.messageService.supprimer(messages);
+        List<SMS> messages = this.messageService.listerParUtilisateur(u.getNumeroTelephone());
+        if (!messages.isEmpty()) {
+            this.messageService.supprimer(messages);
+        }
         //suppression de l'utilisateur lui même
         this.utilisateurService.supprimer(u.getId());
         resp.sendRedirect(getServletContext().getContextPath() + "/users");

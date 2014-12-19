@@ -48,14 +48,14 @@
                             <h5>Facturations <i class="glyphicon glyphicon-chevron-right"></i></h5>
                         </a>
 
-                        <ul class="list-unstyled collapse" id="menu3">  
-                            <c:choose>
-                                <c:when test="${empty msgEnabled}">
-                                    <li><a title="Renew Offer" data-toggle="modal" href="#renewOfferModal">Renouveler</a></li>
-                                        <c:url value="/list-invoices" var="listInvoicesUrl" />
-                                    </c:when>
-                                </c:choose>
+                        <ul class="list-unstyled collapse" id="menu3">                           
+                            <c:url value="/list-invoices" var="listInvoicesUrl" />
                             <li><a href="${listInvoicesUrl}"><i class="glyphicon glyphicon-circle"></i> Mes factures</a></li>
+                                <c:choose>
+                                    <c:when test="${empty msgEnabled}">
+                                    <li><a title="Renew Offer" data-toggle="modal" href="#renewOfferModal">Renouveler</a></li>                                        
+                                    </c:when>
+                                </c:choose>.
                             <div class="modal" id="renewOfferModal">
                                 <div class="modal-dialog">
                                     <div class="modal-content">

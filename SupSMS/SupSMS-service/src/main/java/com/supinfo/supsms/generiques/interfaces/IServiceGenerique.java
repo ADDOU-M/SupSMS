@@ -5,6 +5,7 @@
  */
 package com.supinfo.supsms.generiques.interfaces;
 
+import com.supinfo.supsms.entites.BaseEntite;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  * @param <T>
  * @param <PK>
  */
-public interface IServiceGenerique<T, PK extends java.io.Serializable> {
+public interface IServiceGenerique<T extends BaseEntite, PK extends java.io.Serializable> {
 
     public T ajouter(T t);
 

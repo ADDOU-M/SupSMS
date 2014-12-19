@@ -4,6 +4,7 @@
  */
 package com.supinfo.supsms.generiques.implementation;
 
+import com.supinfo.supsms.entites.BaseEntite;
 import com.supinfo.supsms.generiques.interfaces.IDAOGenerique;
 import com.supinfo.supsms.generiques.interfaces.IFiltreForm;
 import java.util.List;
@@ -21,7 +22,7 @@ import javax.persistence.criteria.Root;
  * @param <T>
  * @param <PK>
  */
-public class DAOGenerique<T, PK extends java.io.Serializable> implements IDAOGenerique<T, PK> {
+public class DAOGenerique<T extends BaseEntite, PK extends java.io.Serializable> implements IDAOGenerique<T, PK> {
 
     @PersistenceContext(unitName = "SupSMS-PU")
     protected EntityManager em;

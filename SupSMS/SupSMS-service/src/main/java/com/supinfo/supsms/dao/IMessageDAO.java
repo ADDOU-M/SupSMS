@@ -17,7 +17,7 @@ import javax.ejb.Remote;
 @Remote
 public interface IMessageDAO extends IDAOGenerique<SMS, Integer> {
 
-    public List<SMS> listerParUtilisateur(Integer idUtilisateur);
+    public List<SMS> listerParUtilisateur(String numeroUtilisateur);
     public List<SMS> conversation(String numeroUtilisateur, String numeroContact);
 
 }

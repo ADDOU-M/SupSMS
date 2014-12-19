@@ -24,7 +24,7 @@ import javax.jms.ObjectMessage;
     @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge"),
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 })
-public class NewMessage extends DAOGenerique<Message, Integer> implements MessageListener {
+public class NewMessage extends DAOGenerique<SMS, Integer> implements MessageListener {
 
     @Resource
     private MessageDrivenContext mdc;

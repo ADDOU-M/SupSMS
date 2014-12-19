@@ -28,4 +28,6 @@ public abstract class BaseEntite implements Serializable, Cloneable {
         this.version = version;
     }
 
+    public abstract Integer getPrimaryKey();
+
 }

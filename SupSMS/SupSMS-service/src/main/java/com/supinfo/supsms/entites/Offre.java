@@ -90,4 +90,9 @@ public class Offre extends BaseEntite {
         return true;
     }
 
+    @Override
+    public Integer getPrimaryKey() {
+        return this.getId();
+    }
+
 }

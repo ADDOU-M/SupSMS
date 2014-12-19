@@ -40,18 +40,13 @@ public class MessageService extends ServiceGenerique<SMS, Integer> implements IM
     }
 
     @Override
-    public List<SMS> listerParUtilisateur(Integer idUtilisateur) {
+    public List<SMS> listerParUtilisateur(String numeroUtilisateur) {
         try {
-            return this.messageDAO.listerParUtilisateur(idUtilisateur);
+            return this.messageDAO.listerParUtilisateur(numeroUtilisateur);
         } catch (Exception ex) {
             Logger.getLogger(SMS.class.getName()).log(Level.SEVERE, null, ex);
             return Collections.EMPTY_LIST;
         }
-    }
-
-    @Override
-    public List<SMS> listerParUtilisateur(Utilisateur u) {
-        return this.listerParUtilisateur(u.getId());
     }
 
     @Override

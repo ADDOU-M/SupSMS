@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.supinfo.supsms.generiques.implementation;
 
+import com.supinfo.supsms.entites.BaseEntite;
 import com.supinfo.supsms.generiques.interfaces.IDAOGenerique;
 import com.supinfo.supsms.generiques.interfaces.IFiltreForm;
 import com.supinfo.supsms.generiques.interfaces.IServiceGenerique;
@@ -22,7 +22,8 @@ import java.util.logging.Logger;
  * @param <T>
  * @param <PK>
  */
-public abstract class ServiceGenerique<T, PK extends java.io.Serializable> implements IServiceGenerique<T, PK> {
+public abstract class ServiceGenerique<T extends BaseEntite, PK extends java.io.Serializable> implements IServiceGenerique<T, PK> {
+
     public abstract IDAOGenerique<T, PK> getDAO();
 
     @Override
@@ -135,10 +136,10 @@ public abstract class ServiceGenerique<T, PK extends java.io.Serializable> imple
     public void supprimer(Iterator<T> ts) {
         while (ts.hasNext()) {
             try {
-                this.getDAO().supprimer(ts.next());
+                this.getDAO().supprimer((PK) ts.next().getPrimaryKey());
             } catch (Exception ex) {
                 Logger.getLogger(ServiceGenerique.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }    
+    }
 }

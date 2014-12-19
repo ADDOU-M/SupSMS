@@ -63,4 +63,9 @@ public class Utilisateur extends Personne {
         this.carnet = carnet;
     }
 
+    @Override
+    public Integer getPrimaryKey() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

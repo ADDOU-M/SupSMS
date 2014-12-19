@@ -5,6 +5,7 @@
  */
 package com.supinfo.supsms.generiques.interfaces;
 
+import com.supinfo.supsms.entites.BaseEntite;
 import java.util.List;
 import javax.persistence.Query;
 
@@ -14,7 +15,7 @@ import javax.persistence.Query;
  * @param <T>
  * @param <PK>
  */
-public interface IDAOGenerique<T, PK extends java.io.Serializable> {
+public interface IDAOGenerique<T extends BaseEntite, PK extends java.io.Serializable> {
 
     Class<T> getType();
 
